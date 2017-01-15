@@ -1,14 +1,15 @@
-'use strict';
+'use structi';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+require.config({
+	paths: {
+		'THREE': '../bower_components/three.js',
+		'text': '../bower_components/text'
+	},
+	shim: {
+		'THREE': {
+			exports: 'THREE'
+		}
+	}
+});
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+
