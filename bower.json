@@ -1,0 +1,13 @@
+{
+  "name": "angular-seed",
+  "description": "A starter project for AngularJS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/angular/angular-seed",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "requirejs": "^2.3.2",
+    "text": "requirejs/text#^2.0.15",
+    "three.js": "^0.82.0"
+  }
+}
