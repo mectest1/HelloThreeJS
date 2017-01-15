@@ -2,7 +2,7 @@
 
 require.config({
 	paths: {
-		'THREE': '../bower_components/three.js',
+		'THREE': '../bower_components/three.js/three',
 		'text': '../bower_components/text'
 	},
 	shim: {
@@ -12,4 +12,7 @@ require.config({
 	}
 });
 
+require(['./components/create-scene'], function(createScene){
+	createScene.init();
+});
 
