@@ -8,6 +8,8 @@
   "dependencies": {
     "requirejs": "^2.3.2",
     "text": "requirejs/text#^2.0.15",
-    "three.js": "^0.82.0"
+    "three.js": "^0.82.0",
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7"
   }
 }

@@ -1,15 +1,20 @@
-define(['THREE'], function(THREE){
+define(['THREE', 'jquery'], function(THREE, jquery){
 	'use strict';
 	//ref: https://threejs.org/docs/index.html#Manual/Introduction/Creating_a_scene
 	
 	return {
-		init: () => {
+		init: (config) => {
+			const canvasWrapper = config && config.convasWrapper || jquery(document.body);
+			const canvasWidth = config && config.width || window.innerWidth;
+			const canvasHeight = config && config.height || window.innerHeight;
+			
 			let scene = new THREE.Scene();
-			let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+			let camera = new THREE.PerspectiveCamera(75, canvasWidth / canvasHeight, 0.1, 1000);
 			
 			let renderer = new THREE.WebGLRenderer();
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			document.body.appendChild(renderer.domElement);
+			renderer.setSize(canvasWidth, canvasHeight);
+			//document.body.appendChild(renderer.domElement);
+			canvasWrapper.append(renderer.domElement);
 			
 			let geometry = new THREE.BoxGeometry(1, 1, 1);
 			let material = new THREE.MeshBasicMaterial({color: 0x00ff00});
