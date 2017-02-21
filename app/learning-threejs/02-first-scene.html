@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learning Three.js</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+		<script type="text/javascript" src="../bower_components/requirejs/require.js"></script>
+		<script type="text/javascript">
+			require.config({
+				paths: {
+					'THREE': '../bower_components/three.js/three',
+					'angular': '../bower_components/angular/angular',
+					'jquery': '../bower_components/jquery/dist/jquery',
+					'text': '../bower_components/text/text'
+				},
+				shim: {
+					'THREE': {
+						exports: 'THREE'
+					},
+					'angular': {
+						exports: 'angular'
+					}
+				}
+			});
+			require(['angular', './js/02-first-scene'], function(angular, app){
+				angular.bootstrap(document, [app.name]);
+			});
+		</script>
+	</head>
+	<body ng-controller="defaultCtrl">
+		<div id="main-canvas">Welcome to the world of Three.js</div>
+	</body>
+</html>
