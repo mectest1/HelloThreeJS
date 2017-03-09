@@ -32,12 +32,17 @@ define(['THREE', 'angular', 'jquery'],
 			});
 			let plane = new Mesh(planeGeometry, planeMaterial);
 			
-			plane.rotation = {
-				x: -0.5 * Math.PI
-			};
-			plane.position = {
-				x: 15, y: 0, z: 0
-			};
+//			plane.rotation = {
+//				x: -0.5 * Math.PI
+//			};
+			plane.rotation.x = -0.5 * Math.PI;
+//			plane.position = {
+//				x: 15, y: 0, z: 0
+//			};
+			plane.position.x = 15;
+			plane.position.y = 0;
+			plane.position.z = 0;
+			
 			scene.add(plane);
 			
 			let cubeGeometry = new BoxGeometry(4, 4, 4);
@@ -47,9 +52,13 @@ define(['THREE', 'angular', 'jquery'],
 			});
 			let cube = new Mesh(cubeGeometry, cubeMaterial);
 			
-			cube.position = {
-				x: -4, y: 3, z: 0
-			};
+//			cube.position = {
+//				x: -4, y: 3, z: 0
+//			};
+			cube.position.x = -4;
+			cube.position.y = 3;
+			cube.position.z = 3;
+			
 			scene.add(cube);
 			
 			let sphereGeometry = new SphereGeometry(4, 20, 20);
@@ -59,16 +68,25 @@ define(['THREE', 'angular', 'jquery'],
 			});
 			let sphere = new Mesh(sphereGeometry, sphereMaterial);
 			
-			sphere.position = {
-				x: 20,
-				y: 4,
-				z: 2
-			};
+//			sphere.position = {
+//				x: 20,
+//				y: 4,
+//				z: 2
+//			};
+			sphere.position.x = 20;
+			sphere.position.y = 4;
+			sphere.position.z = 2;
+			
 			scene.add(sphere);
 			
-			camera.position = {
-				x: -30, y: 40, z: 30
-			};
+//			camera.position = {
+//				x: -30, y: 40, z: 30
+//			};
+			camera.position.x = -30;
+			camera.position.y = 40;
+			camera.position.z = 30;
+			
+			$scope.camera = camera;
 			camera.lookAt(scene.position);
 			
 		

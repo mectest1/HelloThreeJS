@@ -30,6 +30,13 @@
 		</script>
 	</head>
 	<body ng-controller="defaultCtrl">
+		<div>
+			<div class="form-group input-group">
+				X: <input ng-model="camera.position.x" />
+				Y: <input ng-model="camera.position.y" />
+				Z: <input ng-model="camera.position.z" />
+			</div>
+		</div>
 		<div id="main-canvas">Welcome to the world of Three.js</div>
 	</body>
 </html>
