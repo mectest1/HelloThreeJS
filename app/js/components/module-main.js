@@ -2,13 +2,13 @@ define(['angular', 'jquery',
 	//	'./create-scene', 
 		'text!../../data/config/app-config.json',
 		'../../learning-threejs/app',
-		'../services/UIRouterStateService',
+		//'../services/UIRouterStateService',
 		'ui-router'], 
 	function(angular, jquery, 
 		//createScene, 
 		appConfigJson,
-		learningThreeJs,
-		UIRouterStateService
+		learningThreeJs
+		//UIRouterStateService
 			){
 	'use strict';
 	
@@ -21,9 +21,9 @@ define(['angular', 'jquery',
 //		let canvasWrapper = jquery(config.canvasWrapperId);
 //		createScene.init({canvasWrapper: canvasWrapper});
 //	}])
-	.factory('UIRouterStateService', UIRouterStateService)
-	.controller('defaultCtrl', ['$scope', 'UIRouterStateService', function($scope, statesService){
-		$scope.states = statesService.getAllUIRouterStates();
+//	.factory('UIRouterStateService', UIRouterStateService)
+	.controller('defaultCtrl', ['$scope', function($scope){
+		//$scope.states = statesService.getAllUIRouterStates();
 	}])
 	;
 });
