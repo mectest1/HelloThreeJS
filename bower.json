@@ -10,6 +10,7 @@
     "text": "requirejs/text#^2.0.15",
     "three.js": "^0.82.0",
     "angular": "^1.6.1",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "angular-ui-router": "ui-router#^0.4.2"
   }
 }

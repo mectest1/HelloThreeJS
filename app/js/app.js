@@ -3,9 +3,10 @@
 require.config({
 	paths: {
 		'THREE': '../bower_components/three.js/three',
-		'text': '../bower_components/text',
+		'text': '../bower_components/text/text',
 		'jquery': '../bower_components/jquery/dist/jquery',
-		'angular': '../bower_components/angular/angular'
+		'angular': '../bower_components/angular/angular',
+		'ui-router': '../bower_components/angular-ui-router/release/angular-ui-router'
 	},
 	shim: {
 		'THREE': {
@@ -13,6 +14,9 @@ require.config({
 		},
 		'angular': {
 			exports: 'angular'
+		},
+		'ui-router': {
+			deps: ['angular']
 		}
 	}
 });
