@@ -9,7 +9,8 @@ define(['angular', '../config/states-config'], function(angular, states){
 		};
 		
 		return {
-			getStatesNameList: getStatesNameList
+//			getStatesNameList: getStatesNameList
+			getStatesNameList
 		};
 	};
 	fn.$inject = [];

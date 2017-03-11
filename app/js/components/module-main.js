@@ -2,19 +2,22 @@ define(['angular', 'jquery',
 	//	'./create-scene', 
 		'text!../../data/config/app-config.json',
 		'../../learning-threejs/app',
+		'./module-common',
 		//'../services/UIRouterStateService',
 		'ui-router'], 
 	function(angular, jquery, 
 		//createScene, 
 		appConfigJson,
-		learningThreeJs
+		learningThreeJs,
+		commonModule
 		//UIRouterStateService
 			){
 	'use strict';
 	
 //	return angular.module('threeJsApp', ['ui.router'])
 	const appConfig = JSON.parse(appConfigJson);
-	return angular.module(appConfig.mainAppName, [learningThreeJs.name, 'ui.router'])
+	return angular.module(appConfig.mainAppName, 
+		[learningThreeJs.name, commonModule.name, 'ui.router'])
 //	.constant('config', {
 //		canvasWrapperId: '#mainCanvas'		
 //	}).run(['config', function(config){

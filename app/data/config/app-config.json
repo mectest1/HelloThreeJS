@@ -1,3 +1,4 @@
 {
-	"mainAppName": "threeJsApp"
+	"mainAppName": "threeJsApp",
+	"commonModuleName": "commonModule"
 }

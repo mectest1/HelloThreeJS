@@ -16,7 +16,7 @@ define([
 	
 	const homeState = statesConfig[0];
 	
-	return angular.module('learning-threejs', ['ui.router'])
+	return angular.module('learning-threejs', ['ui.router', appConfig.commonModuleName])
 			.config(stateRegister)
 			.factory('StageCreateService', StageCreateService)
 			.factory('UIRouterStateService', UIRouterStateService)

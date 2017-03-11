@@ -101,9 +101,108 @@ define(['angular', 'THREE', 'jquery'],
 			
 		};
 		
+		function createNewScene(config = {
+			canvas: {
+				width: window.innerWidth,
+				height: window.innerHeight
+			}
+		}){
+			let {
+				scene,
+				camera,
+				renderer,
+				plane,
+				cube,
+				sphere
+			} = createNewStage(config);
+			
+			[plane, cube, sphere].forEach(obj => scene.remove(obj));
+			
+			return {
+				scene,
+				camera,
+				renderer
+			};
+		}
+		
+		
+		function translateObject(obj, translationConfig = {
+			rotation: {
+				x: 0,
+				y: 0,
+				z: 0
+			},
+			position: {
+				x: 0,
+				y: 0,
+				z: 0
+			}
+		}){
+			var newVal;
+			Object.keys(translationConfig).forEach(aspect => {
+				
+				['x', 'y', 'z'].forEach(axis => {
+					newVal = translationConfig[aspect][axis];
+					if(angular.isDefined(newVal)){
+						obj[aspect][axis] = translationConfig[aspect][axis];
+					}
+				});
+			});
+		}
+		
+		function translatePlane(plane, translationConfig = {
+				rotation: {
+					x: -0.5 * Math.PI
+				},
+				position: {
+					x: 15
+				}
+			}){
+			translateObject(plane, translationConfig);
+		}
+		
+		function translateCube(cube, translationConfig = {
+			position: {
+				x: -4,
+				y: 3,
+				z: 3
+			}
+		}){
+			translateObject(cube, translationConfig)
+		}
+		
+		function translateSphere(sphere, translationConfig = {
+			position: {
+				x: 20,
+				y: 4,
+				z: 2
+			}
+		}){
+			translateObject(sphere, translationConfig);
+		}
+		
+		function translateCamera(camera, translationConfig = {
+			position: {
+				x: -30,
+				y: 40,
+				z: 30
+			}
+		}){
+			translateObject(camera, translationConfig);
+		}
 		
 		return {
-			createNewStage: createNewStage
+//			createNewStage: createNewStage,
+//			createNewScene: createNewScene
+			createNewStage,
+			createNewScene,
+			
+			//translateObject,
+			//translateCamera,
+			translatePlane,
+			translateCube,
+			translateSphere,
+			derp: 'derp'
 		};
 	};
 	fn.$inject = [];

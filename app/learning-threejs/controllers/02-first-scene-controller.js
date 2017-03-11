@@ -105,7 +105,7 @@ define(['angular', 'THREE', 'jquery'],
 			scene,
 			camera,
 			renderer
-		} = StageCreateService.createNewStage($scope, {
+		} = StageCreateService.createNewStage({
 			canvas: {
 				width: window.innerWidth,
 				height: window.innerHeight,

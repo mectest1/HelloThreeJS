@@ -14,7 +14,7 @@ define(['angular', 'THREE', 'jquery'],
 			plane,
 			cube,
 			sphere
-		} = StageCreateService.createNewStage($scope, {
+		} = StageCreateService.createNewStage({
 			canvas: {
 				width: window.innerWidth,
 				height: window.innerHeight

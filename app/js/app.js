@@ -6,7 +6,8 @@ require.config({
 		'text': '../bower_components/text/text',
 		'jquery': '../bower_components/jquery/dist/jquery',
 		'angular': '../bower_components/angular/angular',
-		'ui-router': '../bower_components/angular-ui-router/release/angular-ui-router'
+		'ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
+		'stats': '../bower_components/threejs-stats/Stats'
 	},
 	shim: {
 		'THREE': {
@@ -17,6 +18,9 @@ require.config({
 		},
 		'ui-router': {
 			deps: ['angular']
+		},
+		'stats': {
+			exports: 'Stats'
 		}
 	}
 });
