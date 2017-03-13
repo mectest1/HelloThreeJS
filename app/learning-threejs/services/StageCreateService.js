@@ -130,18 +130,18 @@ define(['angular', 'THREE', 'jquery'],
 		}
 		
 		
-		function translateObject(obj, translationConfig = {
+		function transformObject(obj, translationConfig = {
 			rotation: {	//rotate
 				x: 0,
 				y: 0,
 				z: 0
 			},
-			position: {	//move
+			position: {	//translation
 				x: 0,
 				y: 0,
 				z: 0
 			}			
-//			,scale: {	//transform
+//			,scale: {	//scale
 //				
 //			}
 		}){
@@ -157,7 +157,7 @@ define(['angular', 'THREE', 'jquery'],
 			});
 		}
 		
-		function translatePlane(plane, translationConfig = {
+		function transformPlane(plane, translationConfig = {
 				rotation: {
 					x: -0.5 * Math.PI
 				},
@@ -165,7 +165,7 @@ define(['angular', 'THREE', 'jquery'],
 					x: 15
 				}
 			}){
-			translateObject(plane, translationConfig);
+			transformObject(plane, translationConfig);
 		}
 		
 		function translateCube(cube, translationConfig = {
@@ -175,7 +175,7 @@ define(['angular', 'THREE', 'jquery'],
 				z: 3
 			}
 		}){
-			translateObject(cube, translationConfig)
+			transformObject(cube, translationConfig)
 		}
 		
 		function translateSphere(sphere, translationConfig = {
@@ -185,7 +185,7 @@ define(['angular', 'THREE', 'jquery'],
 				z: 2
 			}
 		}){
-			translateObject(sphere, translationConfig);
+			transformObject(sphere, translationConfig);
 		}
 		
 		function translateCamera(camera, translationConfig = {
@@ -220,7 +220,7 @@ define(['angular', 'THREE', 'jquery'],
 			
 			//translateObject,
 			//translateCamera,
-			translatePlane,
+			transformPlane,
 			translateCube,
 			translateSphere,
 			

@@ -3,19 +3,23 @@ define([
 	'../controllers/02-first-scene-controller',
 	'../controllers/03-materials-light-controller',
 	'../controllers/04-materials-light-animation-controller',
+	'../controllers/01-basic-scene-controller',
 	//'text!../views/02-first-scene-view.html'
 	'text!../views/home-view.html',
 	'text!../views/simple-canvas-scene-view.html',
-	'text!../views/04-materials-light-animation-view.html'
+	'text!../views/04-materials-light-animation-view.html',
+	'text!../views/01-basic-scene-view.html'
 ], function(
 		homeController,
 		_02FirstSceneController,
 		_03MaterialsLightController,
 		_04MaterialsLightAnimationController,
+		_01BasicSceneController,
 		//_02FirstSceneView
 		homeView,
 		simpleCanvasSceneView,
-		_04MaterialsLightAnimationView
+		_04MaterialsLightAnimationView,
+		_01BasicSceneView
 		){
 	const homeState = {
 		name: 'learning-threejs',
@@ -48,6 +52,13 @@ define([
 			//template: simpleCanvasSceneView,
 			template: _04MaterialsLightAnimationView,
 			controller: _04MaterialsLightAnimationController
+		},
+		{
+			name: '01-basic-scene',
+			parent: homeState,
+			url: '/01-basic-scene',
+			template: _01BasicSceneView,
+			controller: _01BasicSceneController
 		}
 	];
 	

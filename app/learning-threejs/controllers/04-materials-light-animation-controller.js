@@ -34,7 +34,7 @@ define(['angular', 'THREE', 'jquery', 'stats'], function(angular, THREE, jquery,
 			color: 0xffffff
 		});
 		let plane = new Mesh(planeGeometry, planeMaterial);
-		StageCreateService.translatePlane(plane, {
+		StageCreateService.transformPlane(plane, {
 			rotation: {
 				x: -0.5 * Math.PI
 			},
