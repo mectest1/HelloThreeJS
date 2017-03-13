@@ -7,7 +7,11 @@ define(['angular', 'THREE', 'jquery'],
 			BoxGeometry, SphereGeometry} = THREE;
 	const DEFAULT_CANVAS_ID = 'main-canvas';
 	
-	let fn = function(){
+	let fn = function($window){
+		
+		
+		let camera;
+		let renderer;
 		
 		function createNewStage($scope, config = {
 			canvas: {
@@ -29,10 +33,10 @@ define(['angular', 'THREE', 'jquery'],
 			const canvasEle = jquery('#' + canvasId);
 			
 			let scene = new Scene();
-			let camera = new PerspectiveCamera(45, CANVAS_WIDTH/CANVAS_HEIGHT, 
+			camera = new PerspectiveCamera(45, CANVAS_WIDTH/CANVAS_HEIGHT, 
 									0.1, 1000);
 			
-			let renderer = new WebGLRenderer();
+			renderer = new WebGLRenderer();
 			renderer.setClearColor(0xEEEEEE);
 			renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 			
@@ -127,16 +131,19 @@ define(['angular', 'THREE', 'jquery'],
 		
 		
 		function translateObject(obj, translationConfig = {
-			rotation: {
+			rotation: {	//rotate
 				x: 0,
 				y: 0,
 				z: 0
 			},
-			position: {
+			position: {	//move
 				x: 0,
 				y: 0,
 				z: 0
-			}
+			}			
+//			,scale: {	//transform
+//				
+//			}
 		}){
 			var newVal;
 			Object.keys(translationConfig).forEach(aspect => {
@@ -191,6 +198,20 @@ define(['angular', 'THREE', 'jquery'],
 			translateObject(camera, translationConfig);
 		}
 		
+		function updateCanvasOnResize(option = {
+			camera,
+			renderer
+		}){
+			let cameraArg = option && option.camera;
+			let rendererArg = option && option.renderer;
+			
+			$window.addEventListener('resize', event => {
+				cameraArg.aspect = $window.innerWidth / $window.innerHeight;
+				cameraArg.updateProjectionMatrix();
+				rendererArg.setSize($window.innerWidth, $window.innerHeight);
+			});
+		}
+		
 		return {
 //			createNewStage: createNewStage,
 //			createNewScene: createNewScene
@@ -202,10 +223,12 @@ define(['angular', 'THREE', 'jquery'],
 			translatePlane,
 			translateCube,
 			translateSphere,
+			
+			updateCanvasOnResize,
 			derp: 'derp'
 		};
 	};
-	fn.$inject = [];
+	fn.$inject = ['$window'];
 	
 	
 	return fn;

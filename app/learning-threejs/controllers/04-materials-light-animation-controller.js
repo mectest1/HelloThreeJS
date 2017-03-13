@@ -1,7 +1,7 @@
 define(['angular', 'THREE', 'jquery', 'stats'], function(angular, THREE, jquery, Stats){
 	'use strict';
 	
-	let fn = function(StageCreateService){
+	let fn = function(StageCreateService, $window){
 		const STATUS_ID = 'status-output';
 		
 		const {
@@ -69,6 +69,7 @@ define(['angular', 'THREE', 'jquery', 'stats'], function(angular, THREE, jquery,
 		jquery('#' + STATUS_ID).append(stats.domElement);
 		
 		
+		let step = 0;
 		renderScene();
 		
 		function renderScene(){
@@ -78,6 +79,17 @@ define(['angular', 'THREE', 'jquery', 'stats'], function(angular, THREE, jquery,
 				y: 0.02,
 				z: 0.02
 			});
+			
+			if(10 > step){
+				step += 0.04;
+				move(sphere, {
+					x: -0.1 *  Math.abs(Math.sin(step)),
+					y: 0.1 * Math.cos(step)
+	//				x: -0.01,
+	//				y: 0.01
+				});
+			}
+			//camera.lookAt(sphere.position);
 			
 			
 			self.requestAnimationFrame(renderScene);
@@ -97,8 +109,27 @@ define(['angular', 'THREE', 'jquery', 'stats'], function(angular, THREE, jquery,
 			});
 		}
 		
+		function move(c, amount = {
+			x: 0,
+			y: 0,
+			z: 0
+		}){
+			let p = c.position;
+			Object.keys(amount).forEach(axis => {
+				amount[axis] && (p[axis] += amount[axis]);
+			});
+			//p;
+		}
+		
+		//
+//		$window.addEventListener('resize', (event) => {
+//			camera.aspect = $window.innerWidth / $window.innerHeight;
+//			camera.updateProjectionMatrix();
+//			renderer.setSize($window.innerWidth, $window.innerHeight);
+//		});
+		StageCreateService.updateCanvasOnResize();
 	};
-	fn.$inject=['StageCreateService'];
+	fn.$inject=['StageCreateService', '$window'];
 	
 	return fn;
 });
