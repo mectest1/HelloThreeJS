@@ -4,6 +4,7 @@ define([
 	'../controllers/03-materials-light-controller',
 	'../controllers/04-materials-light-animation-controller',
 	'../controllers/01-basic-scene-controller',
+	'../controllers/05-geometry-from-vertices-and-faces-controller',
 	//'text!../views/02-first-scene-view.html'
 	'text!../views/home-view.html',
 	'text!../views/simple-canvas-scene-view.html',
@@ -15,6 +16,7 @@ define([
 		_03MaterialsLightController,
 		_04MaterialsLightAnimationController,
 		_01BasicSceneController,
+		_05GeometryFromVerticesAndFacesController,
 		//_02FirstSceneView
 		homeView,
 		simpleCanvasSceneView,
@@ -59,6 +61,13 @@ define([
 			url: '/01-basic-scene',
 			template: _01BasicSceneView,
 			controller: _01BasicSceneController
+		},
+		{
+			name: '05-geometry-from-vertices-and-faces',
+			parent: homeState,
+			url: '/05-geometry-from-vertices-and-faces',
+			template: simpleCanvasSceneView,
+			controller: _05GeometryFromVerticesAndFacesController
 		}
 	];
 	

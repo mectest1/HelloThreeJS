@@ -4,7 +4,7 @@ define(['angular', 'THREE', 'jquery'],
 	
 	const {Scene, PerspectiveCamera, WebGLRenderer, AxisHelper,
 			PlaneGeometry, MeshBasicMaterial, Mesh,
-			BoxGeometry, SphereGeometry} = THREE;
+			BoxGeometry, SphereGeometry, Vector3} = THREE;
 	const DEFAULT_CANVAS_ID = 'main-canvas';
 	
 	let fn = function($window){
@@ -49,10 +49,12 @@ define(['angular', 'THREE', 'jquery'],
 			});
 			let plane = new Mesh(planeGeometry, planeMaterial);
 			
-			plane.rotation.x = -0.5 * Math.PI;
-			plane.position.x = 15;
-			plane.position.y = 0;
-			plane.position.z = 0;
+//			plane.rotation.x = -0.5 * Math.PI;
+//			plane.position.x = 15;
+//			plane.position.y = 0;
+//			plane.position.z = 0;
+			plane.rotation.set(-0.5 * Math.PI, 0, 0);
+			plane.position.set(15, 0, 0);
 			
 			scene.add(plane);
 			
@@ -63,9 +65,10 @@ define(['angular', 'THREE', 'jquery'],
 			});
 			let cube = new Mesh(cubeGeometry, cubeMaterial);
 			
-			cube.position.x = -4;
-			cube.position.y = 3;
-			cube.position.z = 3;
+//			cube.position.x = -4;
+//			cube.position.y = 3;
+//			cube.position.z = 3;
+			cube.position.set(-4, 3, 3);
 			
 			scene.add(cube);
 			
@@ -76,15 +79,17 @@ define(['angular', 'THREE', 'jquery'],
 			});
 			let sphere = new Mesh(sphereGeometry, sphereMaterial);
 			
-			sphere.position.x = 20;
-			sphere.position.y = 4;
-			sphere.position.z = 2;
+//			sphere.position.x = 20;
+//			sphere.position.y = 4;
+//			sphere.position.z = 2;
+			sphere.position.set(20, 4, 2);
 			
 			scene.add(sphere);
 			
-			camera.position.x = -30;
-			camera.position.y = 40;
-			camera.position.z = 30;
+//			camera.position.x = -30;
+//			camera.position.y = 40;
+//			camera.position.z = 30;
+			camera.position.set(-30, 40, 30);
 			
 			$scope.camera = camera;
 			camera.lookAt(scene.position);
@@ -175,7 +180,7 @@ define(['angular', 'THREE', 'jquery'],
 				z: 3
 			}
 		}){
-			transformObject(cube, translationConfig)
+			transformObject(cube, translationConfig);
 		}
 		
 		function translateSphere(sphere, translationConfig = {

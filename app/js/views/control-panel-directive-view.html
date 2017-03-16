@@ -3,10 +3,15 @@
 		
 	</div>
 	<div class="panel-body">
-		<div class="well">
 			<div class="btn-group">
-				
+				<button ng-repeat="action in actions" class="btn btn-default" ng-click="action.onclick()">{{action.label}}</button>
 			</div>
-		</div>
+			<div class="well">
+				<ul>
+					<li ng-repeat="dispItem in dispInfo" >
+						{{dispItem.label}} <span class="label-info label">{{dispItem.value}}</span>
+					</li>
+				</ul>
+			</div>
 	</div>
 </div>

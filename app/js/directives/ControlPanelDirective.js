@@ -10,7 +10,8 @@ define(['angular', 'THREE', 'jquery',
 			restrict: 'AE',
 			template: directiveView,
 			scope: {
-				
+				actions: '=?',
+				dispInfo: '=?'
 			},
 			controller: ['$scope', function($scope){
 					

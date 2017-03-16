@@ -1,7 +1,9 @@
 define(['angular', 'THREE', 'jquery', 
 	'text!../../data/config/app-config.json',
-	'../directives/StatesListDirective'], 
-	function(angular, THREE, jquery, appConfigStr, StatesListDirective){
+	'../directives/StatesListDirective',
+	'../directives/ControlPanelDirective'], 
+	function(angular, THREE, jquery, appConfigStr, StatesListDirective,
+		ControlPanelDirective){
 	'use strict';
 	
 	const appConfig = JSON.parse(appConfigStr);
@@ -9,6 +11,7 @@ define(['angular', 'THREE', 'jquery',
 	
 	return angular.module(commonModuleName, [])
 			.directive('statesList', StatesListDirective)
+			.directive('controlPanel', ControlPanelDirective)
 		;
 	
 });
