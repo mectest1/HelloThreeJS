@@ -91,7 +91,7 @@ define(['angular', 'THREE', 'jquery'],
 //			camera.position.z = 30;
 			camera.position.set(-30, 40, 30);
 			
-			$scope.camera = camera;
+			//$scope.camera = camera;
 			camera.lookAt(scene.position);
 			
 		

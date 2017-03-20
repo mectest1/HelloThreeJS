@@ -5,11 +5,13 @@ define([
 	'../controllers/04-materials-light-animation-controller',
 	'../controllers/01-basic-scene-controller',
 	'../controllers/05-geometry-from-vertices-and-faces-controller',
+	'../controllers/07-both-cameras-controller',
 	//'text!../views/02-first-scene-view.html'
 	'text!../views/home-view.html',
 	'text!../views/simple-canvas-scene-view.html',
 	'text!../views/04-materials-light-animation-view.html',
-	'text!../views/01-basic-scene-view.html'
+	'text!../views/01-basic-scene-view.html',
+	'text!../views/07-both-cameras-view.html'
 ], function(
 		homeController,
 		_02FirstSceneController,
@@ -17,11 +19,13 @@ define([
 		_04MaterialsLightAnimationController,
 		_01BasicSceneController,
 		_05GeometryFromVerticesAndFacesController,
+		_07BothCamerasController,
 		//_02FirstSceneView
 		homeView,
 		simpleCanvasSceneView,
 		_04MaterialsLightAnimationView,
-		_01BasicSceneView
+		_01BasicSceneView,
+		_07BothCamerasView
 		){
 	const homeState = {
 		name: 'learning-threejs',
@@ -68,6 +72,13 @@ define([
 			url: '/05-geometry-from-vertices-and-faces',
 			template: simpleCanvasSceneView,
 			controller: _05GeometryFromVerticesAndFacesController
+		},
+		{
+			name: '07-both-cameras',
+			parent: homeState,
+			url: '../07-both-cameras',
+			template: _07BothCamerasView,
+			controller: _07BothCamerasController
 		}
 	];
 	

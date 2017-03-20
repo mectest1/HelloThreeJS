@@ -2,11 +2,11 @@
 	<div class="panel-heading">
 		
 	</div>
-	<div class="panel-body">
+	<div class="panel-body" ng-if="actions">
 			<div class="btn-group">
 				<button ng-repeat="action in actions" class="btn btn-default" ng-click="action.onclick()">{{action.label}}</button>
 			</div>
-			<div class="well">
+			<div class="well" ng-if="dispInfo">
 				<ul>
 					<li ng-repeat="dispItem in dispInfo" >
 						{{dispItem.label}} <span class="label-info label">{{dispItem.value}}</span>
