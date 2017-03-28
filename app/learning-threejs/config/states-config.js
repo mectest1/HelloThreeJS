@@ -6,6 +6,7 @@ define([
 	'../controllers/01-basic-scene-controller',
 	'../controllers/05-geometry-from-vertices-and-faces-controller',
 	'../controllers/07-both-cameras-controller',
+	'../controllers/08-lights-controller',
 	//'text!../views/02-first-scene-view.html'
 	'text!../views/home-view.html',
 	'text!../views/simple-canvas-scene-view.html',
@@ -20,6 +21,7 @@ define([
 		_01BasicSceneController,
 		_05GeometryFromVerticesAndFacesController,
 		_07BothCamerasController,
+		_08LightsController,
 		//_02FirstSceneView
 		homeView,
 		simpleCanvasSceneView,
@@ -76,9 +78,16 @@ define([
 		{
 			name: '07-both-cameras',
 			parent: homeState,
-			url: '../07-both-cameras',
+			url: '/07-both-cameras',
 			template: _07BothCamerasView,
 			controller: _07BothCamerasController
+		},
+		{
+			name: '08-lights',
+			parent: homeState,
+			url: '/08-lights',
+			template: _07BothCamerasView,
+			controller: _08LightsController
 		}
 	];
 	

@@ -4,7 +4,12 @@ define(['angular', 'THREE', 'jquery'],
 	
 	const {SpotLight, PlaneGeometry,
 		MeshLambertMaterial, Mesh,
-		BoxGeometry, SphereGeometry, Color} = THREE;
+		BoxGeometry, SphereGeometry, Color,
+		
+		BasicShadowType,
+		PCFShadowType,
+		PCFSoftShadowType
+		} = THREE;
 	
 	let fn = function($scope, StageCreateService){
 		let {
@@ -71,7 +76,8 @@ define(['angular', 'THREE', 'jquery'],
 		//cast shadows
 //		renderer.setClearColor(new Color(0xEEEEEE, 1.0));
 //		renderer.setSize(window.innerSize, window.innerHeight);
-		renderer.shadowMapEnabled = true;
+		renderer.shadowMap.enabled = true;
+		//renderer.shadowMap.type = PCFSoftShadowType;
 		plane2.receiveShadow = true;
 		[cube2, sphere2, spotLight].forEach(obj => obj.castShadow = true);
 		
